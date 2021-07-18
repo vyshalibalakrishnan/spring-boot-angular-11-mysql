@@ -3,22 +3,22 @@ pipeline{
   stages{
     stage('Compile stage'){
       steps{
-        withMaven(maven : 'maven_3_8_1'){
-        sh 'mvn clean compile'
+        maven(maven : 'Maven_3.8.1'){
+          bat 'mvn clean compile'
         }
       }   
     }
     stage('Testing stage'){
       steps{
-        withMaven(maven : 'maven_3_8_1'){
-        sh 'mvn test'
+        maven(maven : 'Maven_3.8.1'){
+          bat 'mvn test'
         }
       }
     }
     stage('Deployment stage'){
       steps{
-        withMaven(maven : 'maven_3_8_1'){
-        sh 'mvn deploy'
+        maven(maven : 'Maven_3.8.1'){
+          bat 'mvn deploy'
         }
       }
     }
